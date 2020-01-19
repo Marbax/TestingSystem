@@ -34,7 +34,8 @@
             // 
             // button2PassTest
             // 
-            this.button2PassTest.Location = new System.Drawing.Point(237, 73);
+            this.button2PassTest.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.button2PassTest.Location = new System.Drawing.Point(3, -1);
             this.button2PassTest.Name = "button2PassTest";
             this.button2PassTest.Size = new System.Drawing.Size(318, 106);
             this.button2PassTest.TabIndex = 0;
@@ -45,7 +46,7 @@
             // button1CreateEdit
             // 
             this.button1CreateEdit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1CreateEdit.Location = new System.Drawing.Point(237, 229);
+            this.button1CreateEdit.Location = new System.Drawing.Point(3, 111);
             this.button1CreateEdit.Name = "button1CreateEdit";
             this.button1CreateEdit.Size = new System.Drawing.Size(318, 106);
             this.button1CreateEdit.TabIndex = 0;
@@ -56,9 +57,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(324, 216);
             this.Controls.Add(this.button2PassTest);
             this.Controls.Add(this.button1CreateEdit);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);

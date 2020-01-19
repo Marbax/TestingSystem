@@ -53,6 +53,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DataManager.cs" />
+    <Compile Include="TestChoosing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestChoosing.Designer.cs">
+      <DependentUpon>TestChoosing.cs</DependentUpon>
+    </Compile>
     <Compile Include="Testing.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestChoosing.resx">
+      <DependentUpon>TestChoosing.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Testing.resx">
       <DependentUpon>Testing.cs</DependentUpon>
@@ -96,9 +105,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Question\Question.csproj">
+    <ProjectReference Include="..\Question\Test.csproj">
       <Project>{00e7a6aa-ea2d-4938-a331-1ff4dcd86661}</Project>
-      <Name>Question</Name>
+      <Name>Test</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

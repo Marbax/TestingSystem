@@ -3,23 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using QuestionNS;
+using TestClass;
 
 namespace Tests
 {
     class DataManager
     {
-        private List<Question> _test;
+        private List<Test> _testList;
 
-        public List<Question> Test
+        public List<Test> TestList
         {
-            get { return _test; }
-            set { _test = value; }
+            get { return _testList; }
+            set { _testList = value; }
         }
 
         public DataManager()
         {
-            _test = new List<Question>();
+            _testList = new List<Test>();
         }
     }
 }

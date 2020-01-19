@@ -4,11 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace QuestionNS
+namespace TestClass
 {
     public class Question
     {
-
 
         private string _questionnText;
 
@@ -36,34 +35,4 @@ namespace QuestionNS
         }
 
     }
-    //TODELETE
-
-    /*
-      public class Answer
-    {
-        private string _answerText;
-
-        public string AnswerText
-        {
-            get { return _answerText; }
-            set { _answerText = value; }
-        }
-
-
-        private bool _correct;
-
-        public bool Correct
-        {
-            get { return _correct; }
-            set { _correct = value; }
-        }
-
-        public Answer(string answerText, bool correct)
-        {
-            _answerText = answerText;
-            _correct = correct;
-        }
-
-    }
-    */
 }

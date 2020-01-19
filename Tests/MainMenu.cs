@@ -28,8 +28,10 @@ namespace Tests
 
         private void button2PassTest_Click(object sender, EventArgs e)
         {
-            Form frm = new Testing();
+            Form frm = new TestChoosing();
+            //Form frm = new Testing();
             //this.Visible = false;
+
             frm.ShowDialog();
         }
     }
