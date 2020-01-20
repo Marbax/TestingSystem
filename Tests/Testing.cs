@@ -16,14 +16,20 @@ namespace Tests
 
         private Test _currentTest;
 
+        private double[] _score;
+
+
         private void InitQuestionsCount()
         {
             hScrollBarQuestChng.Maximum = _currentTest.QuestionList.Count - 1;
+            _score = new double[_currentTest.QuestionList.Count];
         }
 
-        private void PeekQuestion()
+        private void UpdateForm()
         {
             label1Question.Text = _currentTest.QuestionList[hScrollBarQuestChng.Value].QuestionText;
+            label1QuestionNum.Text = $"Question - {hScrollBarQuestChng.Value.ToString()}";
+            label1QuestionValue.Text = $"Question Value - {_currentTest.QuestionList[hScrollBarQuestChng.Value].QuestionValue}";
 
             checkedListBox1Answers.Items.Clear();
             foreach (var item in _currentTest.QuestionList[hScrollBarQuestChng.Value].Answers)
@@ -33,34 +39,58 @@ namespace Tests
         public Testing(Test current)
         {
             _currentTest = current;
-            //checkedListBox1Answers.MultiColumn = true;
+
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
             InitializeComponent();
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
             InitQuestionsCount();
-            PeekQuestion();
+            UpdateForm();
         }
 
         private void hScrollBarQuestChng_Scroll(object sender, ScrollEventArgs e)
         {
-            PeekQuestion();
+            UpdateForm();
         }
 
         private void button1Next_Click(object sender, EventArgs e)
         {
             if (hScrollBarQuestChng.Value < hScrollBarQuestChng.Maximum)
                 hScrollBarQuestChng.Value++;
-            PeekQuestion();
+            UpdateForm();
         }
 
         private void button1Previous_Click(object sender, EventArgs e)
         {
             if (hScrollBarQuestChng.Value > hScrollBarQuestChng.Minimum)
                 hScrollBarQuestChng.Value--;
-            PeekQuestion();
+            UpdateForm();
 
+        }
+
+        private void button1SaveAnswer_Click(object sender, EventArgs e)
+        {
+
+            bool[] checkedItems = new bool[checkedListBox1Answers.Items.Count];
+
+            for (int i = 0; i < checkedListBox1Answers.Items.Count; i++)
+            {
+                if (checkedListBox1Answers.CheckedItems.Contains(checkedListBox1Answers.Items[i]))
+                    checkedItems[i] = true;
+                else
+                    checkedItems[i] = false;
+            }
+
+            Question _currentQuestion = _currentTest.QuestionList[hScrollBarQuestChng.Value];
+
+            _score[hScrollBarQuestChng.Value] = _currentQuestion.Answer(checkedItems);
+        }
+
+        private void button1Finish_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show($"Maximum Test's value = {_currentTest.QuestionList.Sum(x => x.QuestionValue)}\nYour score = {_score.Sum()}", "Test Result");
         }
     }
 }

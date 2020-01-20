@@ -50,8 +50,9 @@
             this.button1CreateEdit.Name = "button1CreateEdit";
             this.button1CreateEdit.Size = new System.Drawing.Size(318, 106);
             this.button1CreateEdit.TabIndex = 0;
-            this.button1CreateEdit.Text = "Create or Edit Test";
+            this.button1CreateEdit.Text = "Edit Test";
             this.button1CreateEdit.UseVisualStyleBackColor = true;
+            this.button1CreateEdit.Click += new System.EventHandler(this.button1CreateEdit_Click);
             // 
             // MainMenu
             // 
