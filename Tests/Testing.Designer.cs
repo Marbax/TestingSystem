@@ -145,9 +145,10 @@
             // label1Question
             // 
             this.label1Question.AutoSize = true;
+            this.label1Question.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label1Question.Location = new System.Drawing.Point(314, 36);
             this.label1Question.Name = "label1Question";
-            this.label1Question.Size = new System.Drawing.Size(77, 13);
+            this.label1Question.Size = new System.Drawing.Size(115, 20);
             this.label1Question.TabIndex = 0;
             this.label1Question.Text = "label1Question";
             // 
@@ -180,6 +181,7 @@
             this.Controls.Add(this.hScrollBarQuestChng);
             this.Name = "Testing";
             this.Text = "Tesing";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Testing_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1AnswerField.ResumeLayout(false);
             this.panel2QuestFied.ResumeLayout(false);

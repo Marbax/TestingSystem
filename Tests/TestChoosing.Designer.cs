@@ -52,6 +52,7 @@
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
             this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked_1);
+            this.menuStrip1.MouseHover += new System.EventHandler(this.menuStrip1_MouseHover);
             // 
             // TestChoosing
             // 
@@ -61,6 +62,8 @@
             this.Controls.Add(this.groupBox1TestCollection);
             this.Name = "TestChoosing";
             this.Text = "TestChoosing";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TestChoosing_FormClosing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.TestChoosing_FormClosed);
             this.Load += new System.EventHandler(this.TestChoosing_Load);
             this.groupBox1TestCollection.ResumeLayout(false);
             this.groupBox1TestCollection.PerformLayout();

@@ -21,24 +21,23 @@ namespace Tests
         {
             button2PassTest.Height = button1CreateEdit.Height;
             button2PassTest.Width = button1CreateEdit.Width;
-
-
-
         }
 
         private void button2PassTest_Click(object sender, EventArgs e)
         {
             Form frm = new TestChoosing("pass");
-            //Form frm = new Testing();
-            //this.Visible = false;
-
-            frm.ShowDialog();
+            frm.ShowDialog(this);
         }
 
         private void button1CreateEdit_Click(object sender, EventArgs e)
         {
             Form frm = new TestChoosing("edit");
-            frm.ShowDialog();
+            frm.ShowDialog(this);
+        }
+
+        private void button1AddTest_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

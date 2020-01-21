@@ -25,7 +25,7 @@ namespace Tests
 
         private void TestChoosing_Load(object sender, EventArgs e)
         {
-
+            Owner.Visible = false;
             _dm.TestList.ForEach(z => menuStrip1.Items.Add(z.Name));
             menuStrip1.Dock = DockStyle.Fill;
             menuStrip1.LayoutStyle = ToolStripLayoutStyle.Table;
@@ -40,18 +40,38 @@ namespace Tests
             if (_formMode == "pass")
                 if (peekedTest.QuestionList.Count > 0)
                 {
-                    Form frm = new Testing(peekedTest) { Text = peekedTest.Name};
-                    frm.ShowDialog();
+                    Form frm = new Testing(peekedTest) { Text = peekedTest.Name };
+                    frm.ShowDialog(this);
                 }
                 else
                     MessageBox.Show("Empty test", "Unresolveable task");
 
             if (_formMode == "edit")
             {
-                //Form frm = new Testing(peekedTest);
-                //frm.ShowDialog();
-                MessageBox.Show("Development in progress");
+                Form frm = new TestEditing(ref peekedTest) { Text = $"Editting the {peekedTest.Name}" };
+                if (frm.ShowDialog(this) == DialogResult.OK)
+                    UpdateChoosingMenu();
             }
+        }
+
+        public void UpdateChoosingMenu()
+        {
+            for (int i = 0; i < menuStrip1.Items.Count; i++)
+            {
+                menuStrip1.Items[i].Text = _dm.TestList[i].Name;
+            }
+        }
+        private void menuStrip1_MouseHover(object sender, EventArgs e)
+        {
+        }
+
+        private void TestChoosing_FormClosed(object sender, FormClosedEventArgs e)
+        {
+        }
+
+        private void TestChoosing_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Owner.Visible = true;
         }
     }
 }

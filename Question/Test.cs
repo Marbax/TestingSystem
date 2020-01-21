@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestClass
 {
-    public class Test
+    public class Test : ICloneable
     {
         private string _name;
 
@@ -43,5 +43,17 @@ namespace TestClass
                 foreach (var item in questins)
                     _questionList.Add(item);
         }
+
+        public object Clone()
+        {
+            List<Question> newQuestionList = new List<Question>();
+            foreach (var item in _questionList)
+            {
+                newQuestionList.Add(item.Clone() as Question);
+            }
+
+            return new Test(_name, _description, newQuestionList.ToArray());
+        }
+
     }
 }

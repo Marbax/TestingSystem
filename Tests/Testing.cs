@@ -46,6 +46,7 @@ namespace Tests
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            Owner.Visible = false;
             InitQuestionsCount();
             UpdateForm();
         }
@@ -91,6 +92,11 @@ namespace Tests
         private void button1Finish_Click(object sender, EventArgs e)
         {
             MessageBox.Show($"Maximum Test's value = {_currentTest.QuestionList.Sum(x => x.QuestionValue)}\nYour score = {_score.Sum()}", "Test Result");
+        }
+
+        private void Testing_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Owner.Visible = true;
         }
     }
 }

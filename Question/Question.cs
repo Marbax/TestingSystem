@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestClass
 {
-    public class Question
+    public class Question : ICloneable
     {
 
         private string _questionnText;
@@ -55,6 +55,16 @@ namespace TestClass
                 _index++;
             }
             return _answerValue;
+        }
+
+        public object Clone()
+        {
+            SortedList<string, bool> newList = new SortedList<string, bool>();
+            foreach (var item in _answers)
+            {
+                newList.Add(item.Key, item.Value);
+            }
+            return new Question(_questionnText, _questionValue, newList.ToArray());
         }
     }
 }
