@@ -113,6 +113,50 @@ namespace Tests
 
         private void buttonSaveChanges_Click(object sender, EventArgs e)
         {
+            try
+            {
+                _peekedTest.QuestionList[hScrollBar1QuestionChng.Value] = ChangeQuestion();
+                MessageBox.Show("Changes successfully applied.", "Complete");
+                UpdateForm();
+            }
+            catch (ApplicationException app_ex)
+            {
+                MessageBox.Show(app_ex.Message, "Error");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unknown Error \n{ex.Message}", "ERROR");
+            }
+        }
+
+        private void buttonAddNewAnswer_Click(object sender, EventArgs e)
+        {
+            panelAnswers.Controls.Add(new TextBox() { Text = "", Dock = DockStyle.Bottom, Name = $"Answer_{panelAnswers.Controls.Count}" });
+            panelBoolValues.Controls.Add(new CheckBox() { Dock = DockStyle.Bottom, Name = $"CheckBox_{panelBoolValues.Controls.Count}" });
+        }
+
+        private void buttonAddQuestion_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _peekedTest.QuestionList.Add(ChangeQuestion());
+                hScrollBar1QuestionChng.Maximum++;
+                hScrollBar1QuestionChng.Value = hScrollBar1QuestionChng.Maximum;
+                MessageBox.Show("Question successfully added.", "Complete");
+                UpdateForm();
+            }
+            catch (ApplicationException app_ex)
+            {
+                MessageBox.Show(app_ex.Message, "Error");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Unknown Error \n{ex.Message}", "ERROR");
+            }
+        }
+
+        private Question ChangeQuestion()
+        {
             double newQuestValue = 0;
             SortedList<string, bool> newAnswers = new SortedList<string, bool>();
             string errorMessage = "";
@@ -123,11 +167,13 @@ namespace Tests
                     try
                     {
                         newQuestValue = double.Parse(textBoxQuestionValue.Text.Trim(' '));
+                        if (newQuestValue < 1)
+                            throw new ApplicationException(errorMessage += "\nQuestion value can't be lover than 1.");
                     }
                     catch (Exception)
                     {
                         errorMessage += "\nIncorrect Question Value";
-                        MessageBox.Show(errorMessage, "Icnorrect Data");
+                        throw new ApplicationException(errorMessage);
                     }
 
                     for (int i = panelAnswers.Controls.Count - 1; i >= 0; i--)
@@ -140,23 +186,37 @@ namespace Tests
                                 newAnswers.Add(panelAnswers.Controls[i].Text.Trim(' '), false);
                         }
                     }
-                    _peekedTest.QuestionList[hScrollBar1QuestionChng.Value].Answers.Clear();
-                    _peekedTest.QuestionList[hScrollBar1QuestionChng.Value].Answers = newAnswers;
-                    _peekedTest.QuestionList[hScrollBar1QuestionChng.Value].QuestionText = richTextBoxQuestionText.Text;
-                    _peekedTest.QuestionList[hScrollBar1QuestionChng.Value].QuestionValue = newQuestValue;
-                    MessageBox.Show("Changes successfully applied.", "Saved");
-                    UpdateForm();
+                    return new Question(richTextBoxQuestionText.Text, newQuestValue, newAnswers.ToArray());
                 }
                 else
-                {
                     errorMessage += "\nQuestion Value can't be empty.";
-                    MessageBox.Show(errorMessage, "Icnorrect Data");
-                }
+            }
+            else
+                errorMessage += "Question Text can't be empty.";
+
+            throw new ApplicationException(errorMessage);
+        }
+
+        private void buttonRemoveCurQuestion_Click(object sender, EventArgs e)
+        {
+            if (hScrollBar1QuestionChng.Maximum > 0)
+            {
+                _peekedTest.QuestionList.RemoveAt(hScrollBar1QuestionChng.Value);
+                hScrollBar1QuestionChng.Maximum--;
+                UpdateForm();
+            }
+            else if (hScrollBar1QuestionChng.Maximum == 0 && _peekedTest.QuestionList.Count > 0)
+            {
+                _peekedTest.QuestionList.RemoveAt(hScrollBar1QuestionChng.Value);
+                richTextBoxQuestionText.Clear();
+                textBoxQuestionValue.Clear();
+                panelAnswers.Controls.Clear();
+                panelBoolValues.Controls.Clear();
+                UpdateForm();
             }
             else
             {
-                errorMessage += "Question Text can't be empty.";
-                MessageBox.Show(errorMessage, "Icnorrect Data");
+                MessageBox.Show("Nothing to remove", "Error");
             }
         }
     }
