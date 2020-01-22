@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace TestClass
 {
+    [Serializable]
     public class Test : ICloneable
     {
         private string _name;

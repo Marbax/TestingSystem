@@ -40,7 +40,7 @@ namespace Tests
         {
             _currentTest = current;
 
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
             InitializeComponent();
         }
 

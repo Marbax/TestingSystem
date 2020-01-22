@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainMenu));
             this.button2PassTest = new System.Windows.Forms.Button();
             this.button1CreateEdit = new System.Windows.Forms.Button();
-            this.button1AddTest = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button2PassTest
@@ -51,30 +51,19 @@
             this.button1CreateEdit.Name = "button1CreateEdit";
             this.button1CreateEdit.Size = new System.Drawing.Size(318, 106);
             this.button1CreateEdit.TabIndex = 0;
-            this.button1CreateEdit.Text = "Edit Test";
+            this.button1CreateEdit.Text = "Edit Tests";
             this.button1CreateEdit.UseVisualStyleBackColor = true;
             this.button1CreateEdit.Click += new System.EventHandler(this.button1CreateEdit_Click);
-            // 
-            // button1AddTest
-            // 
-            this.button1AddTest.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.button1AddTest.Location = new System.Drawing.Point(3, 223);
-            this.button1AddTest.Name = "button1AddTest";
-            this.button1AddTest.Size = new System.Drawing.Size(318, 106);
-            this.button1AddTest.TabIndex = 1;
-            this.button1AddTest.Text = "Add Test";
-            this.button1AddTest.UseVisualStyleBackColor = true;
-            this.button1AddTest.Click += new System.EventHandler(this.button1AddTest_Click);
             // 
             // MainMenu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(324, 329);
-            this.Controls.Add(this.button1AddTest);
+            this.ClientSize = new System.Drawing.Size(324, 219);
             this.Controls.Add(this.button2PassTest);
             this.Controls.Add(this.button1CreateEdit);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "MainMenu";
             this.Text = "MainMenu";
             this.Load += new System.EventHandler(this.MainMenu_Load);
@@ -85,6 +74,5 @@
         #endregion
         private System.Windows.Forms.Button button2PassTest;
         private System.Windows.Forms.Button button1CreateEdit;
-        private System.Windows.Forms.Button button1AddTest;
     }
 }

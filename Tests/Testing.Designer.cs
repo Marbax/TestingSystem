@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Testing));
             this.hScrollBarQuestChng = new System.Windows.Forms.HScrollBar();
             this.panel1AnswerField = new System.Windows.Forms.Panel();
             this.checkedListBox1Answers = new System.Windows.Forms.CheckedListBox();
             this.button1Previous = new System.Windows.Forms.Button();
             this.button1Next = new System.Windows.Forms.Button();
             this.panel2QuestFied = new System.Windows.Forms.Panel();
+            this.button1Finish = new System.Windows.Forms.Button();
+            this.label1QuestionValue = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1SaveAnswer = new System.Windows.Forms.Button();
             this.label1QuestionNum = new System.Windows.Forms.Label();
             this.label1Question = new System.Windows.Forms.Label();
-            this.label1QuestionValue = new System.Windows.Forms.Label();
-            this.button1Finish = new System.Windows.Forms.Button();
             this.panel1AnswerField.SuspendLayout();
             this.panel2QuestFied.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -111,6 +112,25 @@
             this.panel2QuestFied.Size = new System.Drawing.Size(800, 221);
             this.panel2QuestFied.TabIndex = 3;
             // 
+            // button1Finish
+            // 
+            this.button1Finish.Location = new System.Drawing.Point(691, 0);
+            this.button1Finish.Name = "button1Finish";
+            this.button1Finish.Size = new System.Drawing.Size(109, 39);
+            this.button1Finish.TabIndex = 4;
+            this.button1Finish.Text = "Finish";
+            this.button1Finish.UseVisualStyleBackColor = true;
+            this.button1Finish.Click += new System.EventHandler(this.button1Finish_Click);
+            // 
+            // label1QuestionValue
+            // 
+            this.label1QuestionValue.AutoSize = true;
+            this.label1QuestionValue.Location = new System.Drawing.Point(4, 4);
+            this.label1QuestionValue.Name = "label1QuestionValue";
+            this.label1QuestionValue.Size = new System.Drawing.Size(35, 13);
+            this.label1QuestionValue.TabIndex = 3;
+            this.label1QuestionValue.Text = "label1";
+            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button1SaveAnswer);
@@ -152,25 +172,6 @@
             this.label1Question.TabIndex = 0;
             this.label1Question.Text = "label1Question";
             // 
-            // label1QuestionValue
-            // 
-            this.label1QuestionValue.AutoSize = true;
-            this.label1QuestionValue.Location = new System.Drawing.Point(4, 4);
-            this.label1QuestionValue.Name = "label1QuestionValue";
-            this.label1QuestionValue.Size = new System.Drawing.Size(35, 13);
-            this.label1QuestionValue.TabIndex = 3;
-            this.label1QuestionValue.Text = "label1";
-            // 
-            // button1Finish
-            // 
-            this.button1Finish.Location = new System.Drawing.Point(691, 0);
-            this.button1Finish.Name = "button1Finish";
-            this.button1Finish.Size = new System.Drawing.Size(109, 39);
-            this.button1Finish.TabIndex = 4;
-            this.button1Finish.Text = "Finish";
-            this.button1Finish.UseVisualStyleBackColor = true;
-            this.button1Finish.Click += new System.EventHandler(this.button1Finish_Click);
-            // 
             // Testing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -179,6 +180,7 @@
             this.Controls.Add(this.panel2QuestFied);
             this.Controls.Add(this.panel1AnswerField);
             this.Controls.Add(this.hScrollBarQuestChng);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Testing";
             this.Text = "Tesing";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Testing_FormClosed);

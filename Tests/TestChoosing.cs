@@ -20,21 +20,50 @@ namespace Tests
         public TestChoosing(string mode)
         {
             InitializeComponent();
+
+            try
+            {
+                _dm.LoadData();
+            }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message, "Can't load Data");
+            }
+
             _formMode = mode;
+
         }
 
         private void TestChoosing_Load(object sender, EventArgs e)
         {
             Owner.Visible = false;
-            _dm.TestList.ForEach(z => menuStrip1.Items.Add(z.Name));
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
+
             menuStrip1.Dock = DockStyle.Fill;
             menuStrip1.LayoutStyle = ToolStripLayoutStyle.Table;
+
+            UpdateChoosingMenu();
+
+            if (_formMode != "edit")
+                HideEditMenu();
         }
 
+        private void HideEditMenu()
+        {
+            textBoxRemoveTestName.Visible = false;
+            buttonRemoveTest.Visible = false;
+            labelRemoveTesName.Visible = false;
+            labelTestNameAdd.Visible = false;
+            labelNewTestDescription.Visible = false;
+            buttonAddTest.Visible = false;
+            textBoxNameToAdd.Visible = false;
+            richTextBoxNewTestDescription.Visible = false;
+            buttonSaveToFile.Visible = false;
+        }
 
         private void menuStrip1_ItemClicked_1(object sender, ToolStripItemClickedEventArgs e)
         {
-
             Test peekedTest = _dm.TestList.Where(x => x.Name == e.ClickedItem.Text).FirstOrDefault();
 
             if (_formMode == "pass")
@@ -56,10 +85,8 @@ namespace Tests
 
         public void UpdateChoosingMenu()
         {
-            for (int i = 0; i < menuStrip1.Items.Count; i++)
-            {
-                menuStrip1.Items[i].Text = _dm.TestList[i].Name;
-            }
+            menuStrip1.Items.Clear();
+            _dm.TestList.ForEach(z => menuStrip1.Items.Add(z.Name));
         }
         private void menuStrip1_MouseHover(object sender, EventArgs e)
         {
@@ -72,6 +99,46 @@ namespace Tests
         private void TestChoosing_FormClosing(object sender, FormClosingEventArgs e)
         {
             Owner.Visible = true;
+        }
+
+        private void buttonRemoveTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dm.TestList.RemoveAt(_dm.TestList.FindIndex(x => x.Name == textBoxRemoveTestName.Text));
+                UpdateChoosingMenu();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show($"Nothing to remove", "Error");
+            }
+
+        }
+
+        private void labelTestNameAdd_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddTest_Click(object sender, EventArgs e)
+        {
+            if (textBoxNameToAdd.Text != "")
+            {
+                _dm.TestList.Add(new Test(textBoxNameToAdd.Text, richTextBoxNewTestDescription.Text));
+                UpdateChoosingMenu();
+            }
+        }
+
+        private void buttonSaveToFile_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                _dm.SaveData();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Can't save");
+            }
         }
     }
 }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(TestEditing));
             this.textBox1NameEdit = new System.Windows.Forms.TextBox();
             this.panel1StaticFields = new System.Windows.Forms.Panel();
             this.labelQuestionNum = new System.Windows.Forms.Label();
@@ -37,8 +38,12 @@
             this.richTextBoxTestDescription = new System.Windows.Forms.RichTextBox();
             this.labelTestName = new System.Windows.Forms.Label();
             this.panel1DynamicFields = new System.Windows.Forms.Panel();
+            this.panelBoolsOuter = new System.Windows.Forms.Panel();
             this.panelBoolValues = new System.Windows.Forms.Panel();
+            this.panelAnswersOuter = new System.Windows.Forms.Panel();
+            this.panelAnswers = new System.Windows.Forms.Panel();
             this.panelQuestionButtons = new System.Windows.Forms.Panel();
+            this.buttonRemoveCurQuestion = new System.Windows.Forms.Button();
             this.buttonAddNewAnswer = new System.Windows.Forms.Button();
             this.buttonAddQuestion = new System.Windows.Forms.Button();
             this.buttonSaveChanges = new System.Windows.Forms.Button();
@@ -49,18 +54,14 @@
             this.labelQuestionValue = new System.Windows.Forms.Label();
             this.textBoxQuestionValue = new System.Windows.Forms.TextBox();
             this.richTextBoxQuestionText = new System.Windows.Forms.RichTextBox();
-            this.panelAnswers = new System.Windows.Forms.Panel();
             this.hScrollBar1QuestionChng = new System.Windows.Forms.HScrollBar();
-            this.panelAnswersOuter = new System.Windows.Forms.Panel();
-            this.panelBoolsOuter = new System.Windows.Forms.Panel();
-            this.buttonRemoveCurQuestion = new System.Windows.Forms.Button();
             this.panel1StaticFields.SuspendLayout();
             this.panel1.SuspendLayout();
             this.panel1DynamicFields.SuspendLayout();
+            this.panelBoolsOuter.SuspendLayout();
+            this.panelAnswersOuter.SuspendLayout();
             this.panelQuestionButtons.SuspendLayout();
             this.panelQuestionText.SuspendLayout();
-            this.panelAnswersOuter.SuspendLayout();
-            this.panelBoolsOuter.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox1NameEdit
@@ -158,12 +159,37 @@
             this.panel1DynamicFields.Size = new System.Drawing.Size(800, 265);
             this.panel1DynamicFields.TabIndex = 2;
             // 
+            // panelBoolsOuter
+            // 
+            this.panelBoolsOuter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelBoolsOuter.Controls.Add(this.panelBoolValues);
+            this.panelBoolsOuter.Location = new System.Drawing.Point(698, 20);
+            this.panelBoolsOuter.Name = "panelBoolsOuter";
+            this.panelBoolsOuter.Size = new System.Drawing.Size(100, 205);
+            this.panelBoolsOuter.TabIndex = 6;
+            // 
             // panelBoolValues
             // 
             this.panelBoolValues.Location = new System.Drawing.Point(9, 14);
             this.panelBoolValues.Name = "panelBoolValues";
             this.panelBoolValues.Size = new System.Drawing.Size(90, 186);
             this.panelBoolValues.TabIndex = 5;
+            // 
+            // panelAnswersOuter
+            // 
+            this.panelAnswersOuter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelAnswersOuter.Controls.Add(this.panelAnswers);
+            this.panelAnswersOuter.Location = new System.Drawing.Point(278, 20);
+            this.panelAnswersOuter.Name = "panelAnswersOuter";
+            this.panelAnswersOuter.Size = new System.Drawing.Size(414, 205);
+            this.panelAnswersOuter.TabIndex = 6;
+            // 
+            // panelAnswers
+            // 
+            this.panelAnswers.Location = new System.Drawing.Point(21, 14);
+            this.panelAnswers.Name = "panelAnswers";
+            this.panelAnswers.Size = new System.Drawing.Size(369, 185);
+            this.panelAnswers.TabIndex = 2;
             // 
             // panelQuestionButtons
             // 
@@ -178,6 +204,17 @@
             this.panelQuestionButtons.Name = "panelQuestionButtons";
             this.panelQuestionButtons.Size = new System.Drawing.Size(796, 31);
             this.panelQuestionButtons.TabIndex = 4;
+            // 
+            // buttonRemoveCurQuestion
+            // 
+            this.buttonRemoveCurQuestion.Dock = System.Windows.Forms.DockStyle.Left;
+            this.buttonRemoveCurQuestion.Location = new System.Drawing.Point(410, 0);
+            this.buttonRemoveCurQuestion.Name = "buttonRemoveCurQuestion";
+            this.buttonRemoveCurQuestion.Size = new System.Drawing.Size(132, 31);
+            this.buttonRemoveCurQuestion.TabIndex = 5;
+            this.buttonRemoveCurQuestion.Text = "Remove Cur Question";
+            this.buttonRemoveCurQuestion.UseVisualStyleBackColor = true;
+            this.buttonRemoveCurQuestion.Click += new System.EventHandler(this.buttonRemoveCurQuestion_Click);
             // 
             // buttonAddNewAnswer
             // 
@@ -280,13 +317,6 @@
             this.richTextBoxQuestionText.TabIndex = 3;
             this.richTextBoxQuestionText.Text = "";
             // 
-            // panelAnswers
-            // 
-            this.panelAnswers.Location = new System.Drawing.Point(21, 14);
-            this.panelAnswers.Name = "panelAnswers";
-            this.panelAnswers.Size = new System.Drawing.Size(369, 185);
-            this.panelAnswers.TabIndex = 2;
-            // 
             // hScrollBar1QuestionChng
             // 
             this.hScrollBar1QuestionChng.Dock = System.Windows.Forms.DockStyle.Top;
@@ -297,35 +327,6 @@
             this.hScrollBar1QuestionChng.TabIndex = 0;
             this.hScrollBar1QuestionChng.Scroll += new System.Windows.Forms.ScrollEventHandler(this.hScrollBar1QuestionChng_Scroll);
             // 
-            // panelAnswersOuter
-            // 
-            this.panelAnswersOuter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelAnswersOuter.Controls.Add(this.panelAnswers);
-            this.panelAnswersOuter.Location = new System.Drawing.Point(278, 20);
-            this.panelAnswersOuter.Name = "panelAnswersOuter";
-            this.panelAnswersOuter.Size = new System.Drawing.Size(414, 205);
-            this.panelAnswersOuter.TabIndex = 6;
-            // 
-            // panelBoolsOuter
-            // 
-            this.panelBoolsOuter.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelBoolsOuter.Controls.Add(this.panelBoolValues);
-            this.panelBoolsOuter.Location = new System.Drawing.Point(698, 20);
-            this.panelBoolsOuter.Name = "panelBoolsOuter";
-            this.panelBoolsOuter.Size = new System.Drawing.Size(100, 205);
-            this.panelBoolsOuter.TabIndex = 6;
-            // 
-            // buttonRemoveCurQuestion
-            // 
-            this.buttonRemoveCurQuestion.Dock = System.Windows.Forms.DockStyle.Left;
-            this.buttonRemoveCurQuestion.Location = new System.Drawing.Point(410, 0);
-            this.buttonRemoveCurQuestion.Name = "buttonRemoveCurQuestion";
-            this.buttonRemoveCurQuestion.Size = new System.Drawing.Size(132, 31);
-            this.buttonRemoveCurQuestion.TabIndex = 5;
-            this.buttonRemoveCurQuestion.Text = "Remove Cur Question";
-            this.buttonRemoveCurQuestion.UseVisualStyleBackColor = true;
-            this.buttonRemoveCurQuestion.Click += new System.EventHandler(this.buttonRemoveCurQuestion_Click);
-            // 
             // TestEditing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -333,6 +334,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.panel1DynamicFields);
             this.Controls.Add(this.panel1StaticFields);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "TestEditing";
             this.Text = "TestEditing";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TestEditing_FormClosing);
@@ -342,11 +344,11 @@
             this.panel1StaticFields.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1DynamicFields.ResumeLayout(false);
+            this.panelBoolsOuter.ResumeLayout(false);
+            this.panelAnswersOuter.ResumeLayout(false);
             this.panelQuestionButtons.ResumeLayout(false);
             this.panelQuestionText.ResumeLayout(false);
             this.panelQuestionText.PerformLayout();
-            this.panelAnswersOuter.ResumeLayout(false);
-            this.panelBoolsOuter.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

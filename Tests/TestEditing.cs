@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestClass;
 
+
 namespace Tests
 {
     public partial class TestEditing : Form
@@ -17,7 +18,7 @@ namespace Tests
         public TestEditing(ref Test peekedTest)
         {
             InitializeComponent();
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.FormBorderStyle = FormBorderStyle.FixedToolWindow;
 
             _peekedTest = peekedTest;
             textBox1NameEdit.Text = peekedTest.Name;
@@ -140,8 +141,11 @@ namespace Tests
             try
             {
                 _peekedTest.QuestionList.Add(ChangeQuestion());
-                hScrollBar1QuestionChng.Maximum++;
-                hScrollBar1QuestionChng.Value = hScrollBar1QuestionChng.Maximum;
+                if (_peekedTest.QuestionList.Count > 1)
+                {
+                    hScrollBar1QuestionChng.Maximum++;
+                    hScrollBar1QuestionChng.Value = hScrollBar1QuestionChng.Maximum;
+                }
                 MessageBox.Show("Question successfully added.", "Complete");
                 UpdateForm();
             }
@@ -149,9 +153,9 @@ namespace Tests
             {
                 MessageBox.Show(app_ex.Message, "Error");
             }
-            catch (Exception ex)
+            catch (Exception)
             {
-                MessageBox.Show($"Unknown Error \n{ex.Message}", "ERROR");
+                MessageBox.Show($"Unknown Error.", "ERROR");
             }
         }
 
@@ -219,5 +223,6 @@ namespace Tests
                 MessageBox.Show("Nothing to remove", "Error");
             }
         }
+
     }
 }

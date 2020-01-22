@@ -35,9 +35,5 @@ namespace Tests
             frm.ShowDialog(this);
         }
 
-        private void button1AddTest_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }
