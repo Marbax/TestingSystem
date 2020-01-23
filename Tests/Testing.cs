@@ -27,7 +27,7 @@ namespace Tests
 
         private void UpdateForm()
         {
-            label1Question.Text = _currentTest.QuestionList[hScrollBarQuestChng.Value].QuestionText;
+            richTextBoxQuestionText.Text = _currentTest.QuestionList[hScrollBarQuestChng.Value].QuestionText;
             label1QuestionNum.Text = $"Question - {hScrollBarQuestChng.Value.ToString()}";
             label1QuestionValue.Text = $"Question Value - {_currentTest.QuestionList[hScrollBarQuestChng.Value].QuestionValue}";
 
@@ -46,6 +46,8 @@ namespace Tests
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            richTextBoxQuestionText.ReadOnly = true;
+            richTextBoxQuestionText.BackColor = System.Drawing.SystemColors.Window;
             Owner.Visible = false;
             InitQuestionsCount();
             UpdateForm();

@@ -40,7 +40,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.button1SaveAnswer = new System.Windows.Forms.Button();
             this.label1QuestionNum = new System.Windows.Forms.Label();
-            this.label1Question = new System.Windows.Forms.Label();
+            this.richTextBoxQuestionText = new System.Windows.Forms.RichTextBox();
             this.panel1AnswerField.SuspendLayout();
             this.panel2QuestFied.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -61,20 +61,20 @@
             this.panel1AnswerField.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1AnswerField.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel1AnswerField.Controls.Add(this.checkedListBox1Answers);
+            this.panel1AnswerField.Controls.Add(this.label1QuestionValue);
             this.panel1AnswerField.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1AnswerField.Location = new System.Drawing.Point(0, 238);
+            this.panel1AnswerField.Location = new System.Drawing.Point(0, 274);
             this.panel1AnswerField.Name = "panel1AnswerField";
-            this.panel1AnswerField.Size = new System.Drawing.Size(800, 212);
+            this.panel1AnswerField.Size = new System.Drawing.Size(800, 176);
             this.panel1AnswerField.TabIndex = 2;
             // 
             // checkedListBox1Answers
             // 
             this.checkedListBox1Answers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.checkedListBox1Answers.Dock = System.Windows.Forms.DockStyle.Fill;
             this.checkedListBox1Answers.FormattingEnabled = true;
-            this.checkedListBox1Answers.Location = new System.Drawing.Point(0, 0);
+            this.checkedListBox1Answers.Location = new System.Drawing.Point(-1, 21);
             this.checkedListBox1Answers.Name = "checkedListBox1Answers";
-            this.checkedListBox1Answers.Size = new System.Drawing.Size(798, 210);
+            this.checkedListBox1Answers.Size = new System.Drawing.Size(800, 154);
             this.checkedListBox1Answers.TabIndex = 0;
             // 
             // button1Previous
@@ -101,15 +101,14 @@
             // 
             // panel2QuestFied
             // 
+            this.panel2QuestFied.Controls.Add(this.richTextBoxQuestionText);
             this.panel2QuestFied.Controls.Add(this.button1Finish);
-            this.panel2QuestFied.Controls.Add(this.label1QuestionValue);
             this.panel2QuestFied.Controls.Add(this.panel1);
             this.panel2QuestFied.Controls.Add(this.label1QuestionNum);
-            this.panel2QuestFied.Controls.Add(this.label1Question);
             this.panel2QuestFied.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2QuestFied.Location = new System.Drawing.Point(0, 17);
             this.panel2QuestFied.Name = "panel2QuestFied";
-            this.panel2QuestFied.Size = new System.Drawing.Size(800, 221);
+            this.panel2QuestFied.Size = new System.Drawing.Size(800, 257);
             this.panel2QuestFied.TabIndex = 3;
             // 
             // button1Finish
@@ -125,9 +124,10 @@
             // label1QuestionValue
             // 
             this.label1QuestionValue.AutoSize = true;
-            this.label1QuestionValue.Location = new System.Drawing.Point(4, 4);
+            this.label1QuestionValue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1QuestionValue.Location = new System.Drawing.Point(318, 0);
             this.label1QuestionValue.Name = "label1QuestionValue";
-            this.label1QuestionValue.Size = new System.Drawing.Size(35, 13);
+            this.label1QuestionValue.Size = new System.Drawing.Size(51, 20);
             this.label1QuestionValue.TabIndex = 3;
             this.label1QuestionValue.Text = "label1";
             // 
@@ -137,7 +137,7 @@
             this.panel1.Controls.Add(this.button1Next);
             this.panel1.Controls.Add(this.button1Previous);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel1.Location = new System.Drawing.Point(0, 184);
+            this.panel1.Location = new System.Drawing.Point(0, 220);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(800, 37);
             this.panel1.TabIndex = 2;
@@ -156,21 +156,22 @@
             // label1QuestionNum
             // 
             this.label1QuestionNum.AutoSize = true;
-            this.label1QuestionNum.Location = new System.Drawing.Point(356, 0);
+            this.label1QuestionNum.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label1QuestionNum.Location = new System.Drawing.Point(342, 8);
             this.label1QuestionNum.Name = "label1QuestionNum";
-            this.label1QuestionNum.Size = new System.Drawing.Size(35, 13);
+            this.label1QuestionNum.Size = new System.Drawing.Size(51, 20);
             this.label1QuestionNum.TabIndex = 1;
             this.label1QuestionNum.Text = "label1";
             // 
-            // label1Question
+            // richTextBoxQuestionText
             // 
-            this.label1Question.AutoSize = true;
-            this.label1Question.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1Question.Location = new System.Drawing.Point(314, 36);
-            this.label1Question.Name = "label1Question";
-            this.label1Question.Size = new System.Drawing.Size(115, 20);
-            this.label1Question.TabIndex = 0;
-            this.label1Question.Text = "label1Question";
+            this.richTextBoxQuestionText.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.richTextBoxQuestionText.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.richTextBoxQuestionText.Location = new System.Drawing.Point(0, 42);
+            this.richTextBoxQuestionText.Name = "richTextBoxQuestionText";
+            this.richTextBoxQuestionText.Size = new System.Drawing.Size(800, 178);
+            this.richTextBoxQuestionText.TabIndex = 5;
+            this.richTextBoxQuestionText.Text = "";
             // 
             // Testing
             // 
@@ -186,6 +187,7 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Testing_FormClosed);
             this.Load += new System.EventHandler(this.Form1_Load);
             this.panel1AnswerField.ResumeLayout(false);
+            this.panel1AnswerField.PerformLayout();
             this.panel2QuestFied.ResumeLayout(false);
             this.panel2QuestFied.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -198,7 +200,6 @@
         private System.Windows.Forms.HScrollBar hScrollBarQuestChng;
         private System.Windows.Forms.Panel panel1AnswerField;
         private System.Windows.Forms.Panel panel2QuestFied;
-        private System.Windows.Forms.Label label1Question;
         private System.Windows.Forms.CheckedListBox checkedListBox1Answers;
         private System.Windows.Forms.Button button1Next;
         private System.Windows.Forms.Button button1Previous;
@@ -207,6 +208,7 @@
         private System.Windows.Forms.Button button1SaveAnswer;
         private System.Windows.Forms.Label label1QuestionValue;
         private System.Windows.Forms.Button button1Finish;
+        private System.Windows.Forms.RichTextBox richTextBoxQuestionText;
     }
 }
 
