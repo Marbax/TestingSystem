@@ -267,7 +267,7 @@
             this.buttonPreveous.Name = "buttonPreveous";
             this.buttonPreveous.Size = new System.Drawing.Size(113, 31);
             this.buttonPreveous.TabIndex = 0;
-            this.buttonPreveous.Text = "Preveous";
+            this.buttonPreveous.Text = "Previous";
             this.buttonPreveous.UseVisualStyleBackColor = true;
             this.buttonPreveous.Click += new System.EventHandler(this.buttonPreveous_Click);
             // 
